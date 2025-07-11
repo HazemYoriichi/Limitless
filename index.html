@@ -4,94 +4,144 @@
   <meta charset="UTF-8">
   <title>Limitless Legacy</title>
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body, html { height: 100%; scroll-behavior: smooth; font-family: Arial, sans-serif; }
-
-    section {
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
+    * {margin: 0; padding: 0; box-sizing: border-box;}
+    html, body {
+      height: 100%;
+      font-family: Arial, sans-serif;
+      background-color: #000;
+      overflow: hidden;
       color: white;
     }
 
-    .about { background: #1e1e1e; }
-    .scripts { background: #2c2c2c; }
-    .executors { background: #3a3a3a; }
+    .wrapper {
+      display: flex;
+      width: 300vw;
+      height: 100vh;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .section {
+      width: 100vw;
+      height: 100vh;
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px;
+    }
 
     h1 {
       font-size: 48px;
-      margin-bottom: 20px;
       color: #00f0ff;
+      margin-bottom: 20px;
     }
 
     p {
       font-size: 20px;
-      max-width: 600px;
       text-align: center;
-      margin: 0 20px;
+      max-width: 600px;
     }
 
-    .dots {
+    .nav-dots {
       position: fixed;
       bottom: 20px;
       left: 50%;
       transform: translateX(-50%);
       display: flex;
-      gap: 15px;
+      gap: 10px;
     }
 
-    .dots a {
+    .nav-dots div {
       width: 12px;
       height: 12px;
       border-radius: 50%;
-      background-color: #888;
-      display: block;
-      transition: 0.3s;
+      background: #444;
+      transition: background 0.3s;
     }
 
-    .dots a:hover {
-      background-color: #00f0ff;
-      transform: scale(1.3);
+    .nav-dots .active {
+      background: #00f0ff;
+    }
+
+    .arrow {
+      position: fixed;
+      top: 50%;
+      right: 20px;
+      font-size: 40px;
+      color: #00f0ff;
+      cursor: pointer;
+      user-select: none;
+      transform: translateY(-50%);
     }
 
     footer {
-      position: absolute;
+      position: fixed;
       bottom: 10px;
+      right: 10px;
+      color: #888;
       font-size: 14px;
-      color: #aaa;
     }
   </style>
 </head>
 <body>
 
-  <!-- Section 1: About Us -->
-  <section class="about" id="about">
-    <h1>Limitless Legacy</h1>
-    <p>Welcome to Limitless Legacy! We create and share powerful Roblox scripts and tools. Explore our work and dominate every game with style.</p>
-    <footer>Made by Satoru - xg.0 on Discord</footer>
-  </section>
-
-  <!-- Section 2: Roblox Scripts -->
-  <section class="scripts" id="scripts">
-    <h1>Roblox Scripts</h1>
-    <p>Here you’ll find our latest scripts like Speed, Auto Kill, and more. Each one tested and updated regularly.</p>
-    <!-- Add your script boxes here later -->
-  </section>
-
-  <!-- Section 3: Executors -->
-  <section class="executors" id="executors">
-    <h1>Executors</h1>
-    <p>Coming soon: Recommended Roblox script executors for smooth, safe performance.</p>
-  </section>
-
-  <!-- Navigation Dots -->
-  <div class="dots">
-    <a href="#about"></a>
-    <a href="#scripts"></a>
-    <a href="#executors"></a>
+  <div class="wrapper" id="slider">
+    <div class="section" id="page1">
+      <h1>Limitless Legacy</h1>
+      <p>Welcome to Limitless Legacy! We provide powerful Roblox scripts and tools.</p>
+    </div>
+    <div class="section" id="page2">
+      <h1>Roblox Scripts</h1>
+      <p>Speed Scripts, Kill Auras, Auto Farm – everything you need.</p>
+    </div>
+    <div class="section" id="page3">
+      <h1>Executors</h1>
+      <p>Our recommended executors for the best experience. Coming soon.</p>
+    </div>
   </div>
+
+  <div class="arrow" onclick="nextSlide()">➤</div>
+
+  <div class="nav-dots">
+    <div id="dot1" class="active"></div>
+    <div id="dot2"></div>
+    <div id="dot3"></div>
+  </div>
+
+  <footer>
+    Made by Satoru - xg.0 on Discord
+  </footer>
+
+  <script>
+    let currentPage = 0;
+    const slider = document.getElementById("slider");
+    const dots = [document.getElementById("dot1"), document.getElementById("dot2"), document.getElementById("dot3")];
+
+    function updateSlider() {
+      slider.style.transform = `translateX(-${currentPage * 100}vw)`;
+      dots.forEach((dot, i) => {
+        dot.classList.toggle("active", i === currentPage);
+      });
+    }
+
+    function nextSlide() {
+      currentPage = (currentPage + 1) % 3;
+      updateSlider();
+    }
+
+    // Swipe support للموبايل
+    let startX = 0;
+    slider.addEventListener("touchstart", e => startX = e.touches[0].clientX);
+    slider.addEventListener("touchend", e => {
+      let diff = e.changedTouches[0].clientX - startX;
+      if (diff < -50) nextSlide();
+      else if (diff > 50) {
+        currentPage = (currentPage - 1 + 3) % 3;
+        updateSlider();
+      }
+    });
+  </script>
 
 </body>
 </html>
