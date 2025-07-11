@@ -2,146 +2,142 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Limitless Legacy</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aer - Work Anywhere</title>
   <style>
-    * {margin: 0; padding: 0; box-sizing: border-box;}
-    html, body {
-      height: 100%;
-      font-family: Arial, sans-serif;
-      background-color: #000;
-      overflow: hidden;
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #1c1c1c;
       color: white;
     }
 
-    .wrapper {
+    header {
       display: flex;
-      width: 300vw;
-      height: 100vh;
-      transition: transform 0.5s ease-in-out;
-    }
-
-    .section {
-      width: 100vw;
-      height: 100vh;
-      flex-shrink: 0;
-      display: flex;
-      flex-direction: column;
+      justify-content: space-between;
       align-items: center;
-      justify-content: center;
-      padding: 40px;
+      padding: 20px 40px;
+      background-color: #1c1c1c;
     }
 
-    h1 {
-      font-size: 48px;
-      color: #00f0ff;
+    header .logo {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    nav {
+      display: flex;
+      gap: 30px;
+      font-size: 14px;
+    }
+
+    nav a {
+      color: #aaa;
+      text-decoration: none;
+      transition: 0.2s;
+    }
+
+    nav a.active,
+    nav a:hover {
+      color: #f5c46b;
+    }
+
+    .main {
+      display: flex;
+      padding: 40px;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .main .info {
+      max-width: 50%;
+    }
+
+    .main .info h1 {
+      font-size: 60px;
+      font-weight: bold;
       margin-bottom: 20px;
     }
 
-    p {
-      font-size: 20px;
-      text-align: center;
-      max-width: 600px;
+    .main .info p {
+      color: #ccc;
+      font-size: 16px;
+      line-height: 1.6;
     }
 
-    .nav-dots {
-      position: fixed;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
+    .main img {
+      width: 450px;
+      border-radius: 10px;
+    }
+
+    .bottom-section {
       display: flex;
-      gap: 10px;
-    }
-
-    .nav-dots div {
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background: #444;
-      transition: background 0.3s;
-    }
-
-    .nav-dots .active {
-      background: #00f0ff;
-    }
-
-    .arrow {
-      position: fixed;
-      top: 50%;
-      right: 20px;
-      font-size: 40px;
-      color: #00f0ff;
-      cursor: pointer;
-      user-select: none;
-      transform: translateY(-50%);
-    }
-
-    footer {
-      position: fixed;
-      bottom: 10px;
-      right: 10px;
-      color: #888;
+      justify-content: space-between;
+      background-color: #111;
+      padding: 30px 40px;
       font-size: 14px;
+      color: #ccc;
+    }
+
+    .bottom-section div {
+      max-width: 33%;
+    }
+
+    .bottom-section .events p,
+    .bottom-section .news p {
+      margin-top: 10px;
+      line-height: 1.4;
+    }
+
+    .bottom-section img {
+      width: 100%;
+      margin-top: 10px;
+      border-radius: 6px;
     }
   </style>
 </head>
 <body>
+  <header>
+    <div class="logo">Aer</div>
+    <nav>
+      <a href="#" class="active">Home</a>
+      <a href="#">Products</a>
+      <a href="#">About</a>
+      <a href="#">Locations</a>
+      <a href="#">Cart</a>
+      <a href="#">🔍</a>
+    </nav>
+  </header>
 
-  <div class="wrapper" id="slider">
-    <div class="section" id="page1">
-      <h1>Limitless Legacy</h1>
-      <p>Welcome to Limitless Legacy! We provide powerful Roblox scripts and tools.</p>
+  <div class="main">
+    <div class="info">
+      <h4>/01</h4>
+      <p style="margin-bottom: 10px; color: #999;">Work Collection<br>Tech Collection<br>Travel Collection</p>
+      <h1>Work<br>Anywhere</h1>
+      <p>Introducing the Work Collection, a line of minimalist bags designed for a new generation specifically for the modern professional.</p>
     </div>
-    <div class="section" id="page2">
-      <h1>Roblox Scripts</h1>
-      <p>Speed Scripts, Kill Auras, Auto Farm – everything you need.</p>
-    </div>
-    <div class="section" id="page3">
-      <h1>Executors</h1>
-      <p>Our recommended executors for the best experience. Coming soon.</p>
-    </div>
+    <img src="https://i.imgur.com/DvZJ1cF.png" alt="backpack">
   </div>
 
-  <div class="arrow" onclick="nextSlide()">➤</div>
-
-  <div class="nav-dots">
-    <div id="dot1" class="active"></div>
-    <div id="dot2"></div>
-    <div id="dot3"></div>
+  <div class="bottom-section">
+    <div class="events">
+      <strong>EVENTS</strong>
+      <p>Pop-up @ Steven Alan Fillmore<br>SF — Sat, August 12 / 6-8PM</p>
+      <p>Pop-up @ Steven Alan Brooklyn<br>NYC — Sat, August 12 / 6-8PM</p>
+    </div>
+    <div class="events">
+      <img src="https://i.imgur.com/ZUqymBf.jpg" alt="man with backpack">
+    </div>
+    <div class="news">
+      <strong>NEWS</strong>
+      <p>A fresh take on our Active Collection, just in time for spring. Available in black.</p>
+      <p><a href="#" style="color:#f5c46b; text-decoration:none;">Read More</a></p>
+    </div>
   </div>
-
-  <footer>
-    Made by Satoru - xg.0 on Discord
-  </footer>
-
-  <script>
-    let currentPage = 0;
-    const slider = document.getElementById("slider");
-    const dots = [document.getElementById("dot1"), document.getElementById("dot2"), document.getElementById("dot3")];
-
-    function updateSlider() {
-      slider.style.transform = `translateX(-${currentPage * 100}vw)`;
-      dots.forEach((dot, i) => {
-        dot.classList.toggle("active", i === currentPage);
-      });
-    }
-
-    function nextSlide() {
-      currentPage = (currentPage + 1) % 3;
-      updateSlider();
-    }
-
-    // Swipe support للموبايل
-    let startX = 0;
-    slider.addEventListener("touchstart", e => startX = e.touches[0].clientX);
-    slider.addEventListener("touchend", e => {
-      let diff = e.changedTouches[0].clientX - startX;
-      if (diff < -50) nextSlide();
-      else if (diff > 50) {
-        currentPage = (currentPage - 1 + 3) % 3;
-        updateSlider();
-      }
-    });
-  </script>
-
 </body>
 </html>
