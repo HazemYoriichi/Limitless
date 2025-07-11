@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Roblox Scripts - Limitless Legacy</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Josefin+Sans:wght@400;600;700&family=Manrope:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #1c1c1c;
+      color: white;
+      font-family: 'Manrope', sans-serif;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: #1c1c1c;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      font-family: 'Josefin Sans', sans-serif;
+    }
+
+    nav {
+      display: flex;
+      gap: 30px;
+    }
+
+    nav a {
+      color: #aaa;
+      text-decoration: none;
+      font-size: 14px;
+      transition: 0.2s;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: #f5c46b;
+    }
+
+    .content {
+      padding: 60px 40px;
+    }
+
+    h1 {
+      font-size: 36px;
+      margin-bottom: 30px;
+      font-weight: bold;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .script-box {
+      background-color: #2a2a2a;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+
+    .script-box h2 {
+      font-size: 20px;
+      margin-bottom: 10px;
+      color: #f5c46b;
+    }
+
+    .script-box pre {
+      background-color: #1c1c1c;
+      padding: 10px;
+      border-radius: 5px;
+      overflow-x: auto;
+      font-size: 13px;
+      color: #eee;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #1c1c1c;
+      color: #888;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">Limitless Legacy</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="scripts.html" class="active">Roblox Scripts</a>
+      <a href="#">Executors</a>
+    </nav>
+  </header>
+
+  <div class="content">
+    <h1>Roblox Scripts</h1>
+
+    <!-- مثال على سكربت -->
+    <div class="script-box">
+      <h2>Auto Farm Script</h2>
+      <pre>
+// Auto Farm Script by Satoru
+while true do
+  wait(1)
+  game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.Coins.Coin.CFrame
+end
+      </pre>
+    </div>
+
+    <!-- ممكن تضيف سكربتات تانية بنفس الشكل -->
+    <div class="script-box">
+      <h2>Speed Hack</h2>
+      <pre>
+-- Speed Hack Script
+game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 100
+      </pre>
+    </div>
+
+  </div>
+
+  <footer>
+    Made By Satoru - xg.0 On Discord
+  </footer>
+</body>
+</html>
