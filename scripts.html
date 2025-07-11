@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Roblox Scripts - Limitless Legacy</title>
+  <title>Roblox Games - Limitless Legacy</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Josefin+Sans:wght@400;600;700&family=Manrope:wght@400;600;700&display=swap" rel="stylesheet"/>
   <style>
     body {
@@ -56,26 +56,28 @@
       font-family: 'Montserrat', sans-serif;
     }
 
-    .script-box {
+    .game-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+
+    .game-box {
       background-color: #2a2a2a;
       padding: 20px;
       border-radius: 8px;
-      margin-bottom: 20px;
+      text-align: center;
+      transition: 0.2s;
     }
 
-    .script-box h2 {
-      font-size: 20px;
-      margin-bottom: 10px;
+    .game-box:hover {
+      background-color: #333;
+    }
+
+    .game-box h2 {
+      font-size: 18px;
       color: #f5c46b;
-    }
-
-    .script-box pre {
-      background-color: #1c1c1c;
-      padding: 10px;
-      border-radius: 5px;
-      overflow-x: auto;
-      font-size: 13px;
-      color: #eee;
+      margin: 0;
     }
 
     footer {
@@ -98,29 +100,20 @@
   </header>
 
   <div class="content">
-    <h1>Roblox Scripts</h1>
+    <h1>Popular Roblox Games</h1>
 
-    <!-- مثال على سكربت -->
-    <div class="script-box">
-      <h2>Auto Farm Script</h2>
-      <pre>
-// Auto Farm Script by Satoru
-while true do
-  wait(1)
-  game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.Coins.Coin.CFrame
-end
-      </pre>
-    </div>
-
-    <!-- ممكن تضيف سكربتات تانية بنفس الشكل -->
-    <div class="script-box">
-      <h2>Speed Hack</h2>
-      <pre>
--- Speed Hack Script
-game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 100
-      </pre>
-    </div>
-
+ <div class="game-list">
+  <a href="bloxfruits.html" class="game-box"><h2>Blox Fruits</h2></a>
+  <a href="doors.html" class="game-box"><h2>Doors</h2></a>
+  <a href="arsenal.html" class="game-box"><h2>Arsenal</h2></a>
+  <a href="strongest.html" class="game-box"><h2>The Strongest Battleground</h2></a>
+  <a href="inkgame.html" class="game-box"><h2>Ink Game</h2></a>
+  <a href="brainrot.html" class="game-box"><h2>Steal a Brainrot Universal</h2></a>
+  <a href="mm2.html" class="game-box"><h2>Murder Mystery 2</h2></a>
+  <a href="garden.html" class="game-box"><h2>Grow a Garden</h2></a>
+  <a href="murdervs.html" class="game-box"><h2>Murderers VS Sheriff Duels</h2></a>
+  <a href="bluelock.html" class="game-box"><h2>Blue Lock: Rivals</h2></a>
+</div>
   </div>
 
   <footer>
