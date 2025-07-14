@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Limitless Legacy - Strong Lua Obfuscator</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #0e0e0e;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 900px;
+      margin: 60px auto;
+      padding: 20px;
+    }
+    h1 {
+      font-size: 2.5rem;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    textarea {
+      width: 100%;
+      min-height: 180px;
+      background: #1b1b1b;
+      color: #00ff91;
+      border: 1px solid #333;
+      border-radius: 10px;
+      padding: 16px;
+      font-size: 1rem;
+      resize: vertical;
+    }
+    button {
+      background: #00ff91;
+      color: #000;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 10px;
+      margin-top: 15px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+    button:hover {
+      background: #00c977;
+    }
+    .output {
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Limitless Legacy - Strong Lua Obfuscator</h1>
+    
+    <label for="luaCode">Paste your Lua code:</label>
+    <textarea id="luaCode" placeholder="-- Paste your Lua code here"></textarea>
+    
+    <button onclick="strongObfuscate()">Obfuscate</button>
+    
+    <div class="output">
+      <label for="output">Obfuscated Code:</label>
+      <textarea id="output" readonly></textarea>
+      <button onclick="copyOutput()">Copy</button>
+    </div>
+  </div>
+
+  <script>
+    function encodeString(str) {
+      return str.split("").map(c => "\\" + c.charCodeAt(0)).join("");
+    }
+
+    function randomVarName(length = 8) {
+      const chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+      let name = "";
+      for (let i = 0; i < length; i++) {
+        name += chars.charAt(Math.floor(Math.random() * chars.length));
+      }
+      return name;
+    }
+
+    function strongObfuscate() {
+      const input = document.getElementById('luaCode').value;
+      if (!input.trim()) {
+        alert("Please enter Lua code first.");
+        return;
+      }
+
+      const base64 = btoa(unescape(encodeURIComponent(input)));
+      const encodedString = encodeString(base64);
+      const fakeVar1 = randomVarName();
+      const fakeVar2 = randomVarName();
+      const fakeFunc = randomVarName();
+
+      const finalCode = `
+-- Obfuscated by Limitless Legacy
+local ${fakeVar1} = function()
+  local ${fakeVar2} = "${encodedString}"
+  local function decode(str)
+    local t = {}
+    for code in str:gmatch("\\\\(%d+)") do
+      table.insert(t, string.char(tonumber(code)))
+    end
+    return table.concat(t)
+  end
+  loadstring(game:HttpGet("data:text/plain;base64," .. decode(${fakeVar2}), true))()
+end
+local function ${fakeFunc}() return math.random(1, 9) * os.time() end
+${fakeVar1}()
+`;
+
+      document.getElementById('output').value = finalCode.trim();
+    }
+
+    function copyOutput() {
+      const output = document.getElementById('output');
+      output.select();
+      document.execCommand('copy');
+      alert('Copied to clipboard!');
+    }
+  </script>
+</body>
+</html>
