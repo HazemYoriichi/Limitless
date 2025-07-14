@@ -1,1 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PC Tools - Limitless Legacy</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Josefin+Sans:wght@400;600;700&family=Manrope:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      background-color: #1c1c1c;
+      color: white;
+      font-family: 'Manrope', sans-serif;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+      animation: slideIn 0.5s forwards;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: #1c1c1c;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      font-family: 'Josefin Sans', sans-serif;
+    }
+
+    nav {
+      display: flex;
+      gap: 30px;
+    }
+
+    nav a {
+      color: #aaa;
+      text-decoration: none;
+      font-size: 14px;
+      transition: 0.2s;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: #f5c46b;
+    }
+
+    .main {
+      padding: 60px 40px;
+      flex: 1;
+      font-family: 'Manrope', sans-serif;
+    }
+
+    h1 {
+      font-size: 36px;
+      margin-bottom: 30px;
+      font-weight: bold;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .tool-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .tool-box {
+      background-color: #2a2a2a;
+      padding: 20px;
+      border-radius: 8px;
+      transition: 0.2s;
+      text-decoration: none;
+      color: white;
+      display: block;
+    }
+
+    .tool-box:hover {
+      background-color: #333;
+    }
+
+    .tool-box h2 {
+      font-size: 20px;
+      color: #f5c46b;
+      margin-bottom: 10px;
+    }
+
+    .tool-box p {
+      font-size: 14px;
+      color: #ccc;
+      line-height: 1.4;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #1c1c1c;
+      color: #888;
+      font-size: 14px;
+    }
+
+    /* Slide Animation */
+    @keyframes slideIn {
+      from { transform: translateX(100%); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+
+    @keyframes slideOut {
+      from { transform: translateX(0); opacity: 1; }
+      to { transform: translateX(-100%); opacity: 0; }
+    }
+
+    .page-transition-exit {
+      animation: slideOut 0.5s forwards;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">Limitless Legacy</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="scripts.html">Roblox Scripts</a>
+      <a href="executors.html">Executors</a>
+      <a href="tools.html" class="active">Tools</a>
+      <a href="search.html" style="font-size: 16px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#aaa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"/>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+      </a>
+    </nav>
+  </header>
+
+  <div class="main">
+    <h1>Tools</h1>
+    <div class="tool-list">
+      <a href="mul.html" class="tool-box">
+        <h2>Multiple Games</h2>
+        <p>Usually, you are limited to having only one game open. With this, you can open as many games as you want. 100 games if you felt like.</p>
+      </a>
+      <a href="exploitapi.html" class="tool-box">
+        <h2>Exploit API</h2>
+        <p>An incredibly easy solution that lets novices and pros make powerful content. Used to make some of the most popular exploits.</p>
+      </a>
+      <a href="lagswitch.html" class="tool-box">
+        <h2>Lag Switch</h2>
+        <p>Freeze time to appear as if you are teleporting. In some games, you can dump ammo and appear to insta kill. Universal for all PC games!</p>
+      </a>
+      <a href="autoclicker.html" class="tool-box">
+        <h2>Autoclicker</h2>
+        <p>Makes your computer click itself up to 1500 clicks per second. Useful for click farming.</p>
+      </a>
+            <a href="dllinjector.html" class="tool-box">
+        <h2>DLL Injector</h2>
+        <p>Feature packed injector used to map DLL based cheats into games for both 64bit and 32bit.</p>
+      </a>
+            <a href="winrar.html" class="tool-box">
+        <h2>WinRar</h2>
+        <p>This is used to open archived files such as .rar and .zip files.</p>
+      </a>
+            <a href="control.html" class="tool-box">
+        <h2>Defender Control</h2>
+        <p>Open source Windows Defender disabler.</p>
+      </a>
+            <a href="extreme.html" class="tool-box">
+        <h2>Extreme Injector</h2>
+        <p>Typically used to inject dll based exploits into programs.</p>
+      </a>
+            <a href="shutdown.html" class="tool-box">
+        <h2>Shutdown Timer</h2>
+        <p>This shuts down your computer after a set amount of time. Useful for downloading gigabytes worth of games while you're asleep.</p>
+      </a>
+                  <a href="nopde.html" class="tool-box">
+        <h2>NOPDE Engine</h2>
+        <p>Most games have anti-cheat systems that block Cheat Engine. This is a version of Cheat Engine which often bypasses that check(If you set correct settings).</p>
+      </a>
+                  <a href="notepad.html" class="tool-box">
+        <h2>Notepad++</h2>
+        <p>Notepad++ is my favorite text editor for general use and coding purposes. Supports most of the popular languages.</p>
+      </a>
+                  <a href="extreme.html" class="tool-box">
+        <h2>Memory Edit Class</h2>
+        <p>Used for basic external memory editing in C#</p>
+      </a>
+    </div>
+  </div>
+
+  <footer>
+    Made By Satoru - xg.0 On Discord
+  </footer>
+
+  <script>
+    document.querySelectorAll('a[href]').forEach(link => {
+      link.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (href && !href.startsWith('#') && !href.startsWith('mailto:')) {
+          e.preventDefault();
+          document.body.classList.add('page-transition-exit');
+          setTimeout(() => {
+            window.location.href = href;
+          }, 500);
+        }
+      });
+    });
+  </script>
+</body>
+</html>
 
