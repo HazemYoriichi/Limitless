@@ -1,1 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Executors - Limitless Legacy</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Josefin+Sans:wght@400;600;700&family=Manrope:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      background-color: #1c1c1c;
+      color: white;
+      font-family: 'Manrope', sans-serif;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: #1c1c1c;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      font-family: 'Josefin Sans', sans-serif;
+    }
+
+    nav {
+      display: flex;
+      gap: 30px;
+    }
+
+    nav a {
+      color: #aaa;
+      text-decoration: none;
+      font-size: 14px;
+      transition: 0.2s;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: #f5c46b;
+    }
+
+    .content {
+      padding: 60px 40px;
+      flex: 1;
+    }
+
+    h1 {
+      font-size: 36px;
+      margin-bottom: 30px;
+      font-weight: bold;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .executor-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+
+    .executor-box {
+      background-color: #2a2a2a;
+      padding: 20px;
+      border-radius: 8px;
+      text-align: center;
+      transition: 0.2s;
+      text-decoration: none;
+      display: block;
+    }
+
+    .executor-box:hover {
+      background-color: #333;
+    }
+
+    .executor-box h2 {
+      font-size: 18px;
+      color: #f5c46b;
+      margin: 0;
+      font-weight: 600;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #1c1c1c;
+      color: #888;
+      font-size: 14px;
+    }
+
+    /* Slide Animation */
+    .page-transition-enter {
+      animation: slideIn 0.5s forwards;
+    }
+
+    .page-transition-exit {
+      animation: slideOut 0.5s forwards;
+    }
+
+    @keyframes slideIn {
+      from { transform: translateX(100%); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+
+    @keyframes slideOut {
+      from { transform: translateX(0); opacity: 1; }
+      to { transform: translateX(-100%); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">Limitless Legacy</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="scripts.html">Roblox Scripts</a>
+      <a href="executors.html" class="active">Executors</a>
+      <a href="tools.html">Tools</a>
+      <a href="search.html" style="font-size: 16px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#aaa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"/>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+      </a>
+    </nav>
+  </header>
+
+  <div class="content page-transition-enter">
+    <h1>Roblox Executors</h1>
+
+    <div class="executor-list">
+      <a href="pc.html" class="executor-box"><h2>PC Executors</h2></a>
+      <a href="mobile.html" class="executor-box"><h2>Mobile Executors</h2></a>
+    </div>
+  </div>
+
+  <footer>
+    Made By Satoru - xg.0 On Discord
+  </footer>
+
+  <!-- Page Transition Script -->
+  <script>
+    document.body.classList.add('page-transition-enter');
+
+    document.querySelectorAll('a[href]').forEach(link => {
+      link.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (href && !href.startsWith('#') && !href.startsWith('mailto:')) {
+          e.preventDefault();
+          document.body.classList.remove('page-transition-enter');
+          document.body.classList.add('page-transition-exit');
+          setTimeout(() => {
+            window.location.href = href;
+          }, 500);
+        }
+      });
+    });
+  </script>
+</body>
+</html>
