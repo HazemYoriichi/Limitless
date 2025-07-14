@@ -5,7 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Executors - Limitless Legacy</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Josefin+Sans:wght@400;600;700&family=Manrope:wght@400;600;700&display=swap" rel="stylesheet"/>
+ 
   <style>
+    /* Slide Animation */
+.page-transition-enter {
+  animation: slideIn 0.5s forwards;
+}
+
+.page-transition-exit {
+  animation: slideOut 0.5s forwards;
+}
+
+@keyframes slideIn {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideOut {
+  from { transform: translateX(0); opacity: 1; }
+  to { transform: translateX(-100%); opacity: 0; }
+}
     * {
       margin: 0;
       padding: 0;
@@ -128,13 +147,34 @@
     <h1>Roblox Executors</h1>
 
     <div class="executor-list">
-      <a href="pc.html" class="executor-box"><h2>Pc Executors</h2></a>
-      <a href="mobile.html" class="executor-box"><h2>Mobile Executors</h2></a>
+      <a href="delta.html" class="executor-box"><h2>Delta</h2></a>
+      <a href="krnl.html" class="executor-box"><h2>KRNL</h2></a>
+           <a href="ronix.html" class="executor-box"><h2>Ronix</h2></a>
+            <a href="fluxus.html" class="executor-box"><h2>Fluxus</h2></a>
+                  <a href="hydrogen.html" class="executor-box"><h2>Hydrogen</h2></a>
     </div>
   </div>
 
   <footer>
     Made By Satoru - xg.0 On Discord
   </footer>
+  <script>
+  document.body.classList.add('page-transition-enter');
+
+  document.querySelectorAll('a[href]').forEach(link => {
+    link.addEventListener('click', function(e) {
+      const href = this.getAttribute('href');
+      if (href && !href.startsWith('#') && !href.startsWith('mailto:')) {
+        e.preventDefault();
+        document.body.classList.remove('page-transition-enter');
+        document.body.classList.add('page-transition-exit');
+        setTimeout(() => {
+          window.location.href = href;
+        }, 500);
+      }
+    });
+  });
+</script>
+
 </body>
 </html>
