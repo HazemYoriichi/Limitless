@@ -6,12 +6,23 @@
   <title>Roblox Games - Limitless Legacy</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Josefin+Sans:wght@400;600;700&family=Manrope:wght@400;600;700&display=swap" rel="stylesheet"/>
   <style>
-    body {
+    * {
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
       background-color: #1c1c1c;
       color: white;
       font-family: 'Manrope', sans-serif;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
     }
 
     header {
@@ -47,6 +58,8 @@
 
     .content {
       padding: 60px 40px;
+      flex: 1;
+      animation: slideIn 0.5s forwards;
     }
 
     h1 {
@@ -90,6 +103,25 @@
       color: #888;
       font-size: 14px;
     }
+
+    /* Slide Animation */
+    .page-transition-enter {
+      animation: slideIn 0.5s forwards;
+    }
+
+    .page-transition-exit {
+      animation: slideOut 0.5s forwards;
+    }
+
+    @keyframes slideIn {
+      from { transform: translateX(100%); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+
+    @keyframes slideOut {
+      from { transform: translateX(0); opacity: 1; }
+      to { transform: translateX(-100%); opacity: 0; }
+    }
   </style>
 </head>
 <body>
@@ -98,7 +130,14 @@
     <nav>
       <a href="index.html">Home</a>
       <a href="scripts.html" class="active">Roblox Scripts</a>
-      <a href="#">Executors</a>
+      <a href="executors.html">Executors</a>
+            <a href="tools.html">Tools</a>
+      <a href="search.html" style="font-size: 16px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#aaa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"/>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+      </a>
     </nav>
   </header>
 
@@ -112,7 +151,7 @@
       <a href="arsenal.html" class="game-box"><h2>Arsenal</h2></a>
       <a href="strongest.html" class="game-box"><h2>The Strongest Battleground</h2></a>
       <a href="inkgame.html" class="game-box"><h2>Ink Game</h2></a>
-      <a href="brainrot.html" class="game-box"><h2>Steal a Brainrot Universal</h2></a>
+      <a href="brainrot.html" class="game-box"><h2>Steal a Brainrot</h2></a>
       <a href="mm2.html" class="game-box"><h2>Murder Mystery 2</h2></a>
       <a href="garden.html" class="game-box"><h2>Grow a Garden</h2></a>
       <a href="murdervs.html" class="game-box"><h2>Murderers VS Sheriff Duels</h2></a>
@@ -123,5 +162,24 @@
   <footer>
     Made By Satoru - xg.0 On Discord
   </footer>
+
+  <!-- Transition Script -->
+  <script>
+    document.body.classList.add('page-transition-enter');
+
+    document.querySelectorAll('a[href]').forEach(link => {
+      link.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (href && !href.startsWith('#') && !href.startsWith('mailto:')) {
+          e.preventDefault();
+          document.body.classList.remove('page-transition-enter');
+          document.body.classList.add('page-transition-exit');
+          setTimeout(() => {
+            window.location.href = href;
+          }, 500);
+        }
+      });
+    });
+  </script>
 </body>
 </html>
