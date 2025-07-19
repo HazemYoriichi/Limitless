@@ -1,0 +1,193 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Robux Tax Calculator</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Josefin+Sans:wght@400;600;700&family=Manrope:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    body {
+      background-color: #1c1c1c;
+      font-family: 'Manrope', sans-serif;
+      color: white;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 100px auto;
+      text-align: center;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 42px;
+      margin-bottom: 30px;
+      color: #f5c46b;
+      font-family: 'Josefin Sans', sans-serif;
+    }
+
+    .mode-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+
+    .mode-buttons button {
+      padding: 12px 24px;
+      font-size: 14px;
+      font-weight: bold;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      background-color: #2a2a2a;
+      color: white;
+      transition: 0.3s;
+    }
+
+    .mode-buttons button.active,
+    .mode-buttons button:hover {
+      background-color: #f5c46b;
+      color: #1c1c1c;
+    }
+
+    .input-container {
+      position: relative;
+      width: 80%;
+      max-width: 300px;
+      margin: 0 auto 40px;
+    }
+
+    .input-container img {
+      position: absolute;
+      left: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 24px;
+      height: 24px;
+    }
+
+    .input-container input {
+      width: 100%;
+      padding: 12px 12px 12px 42px;
+      border-radius: 10px;
+      border: none;
+      font-size: 18px;
+      outline: none;
+    }
+
+.output-box {
+  border: 2px solid #000;       /* حدود سوداء */
+  padding: 30px 20px 40px;
+  border-radius: 20px;
+  text-align: center;
+  position: relative;
+  margin-top: 30px;
+}
+
+.output-box h3 {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #1c1c1c;   /* نفس خلفية الموقع */
+  padding: 0 10px;
+  color: #000;                 /* لون النص أسود */
+  font-size: 14px;             /* حجم صغير */
+  font-weight: 600;
+}
+
+.output-box .result {
+  font-size: 40px;
+  color: #000;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+
+    .output-value {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 32px;
+      font-weight: bold;
+      color: #f5c46b;
+    }
+
+    .output-value img {
+      width: 28px;
+      height: 28px;
+      margin-left: 10px;
+    }
+
+    a.back {
+      color: #f5c46b;
+      text-decoration: none;
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      font-size: 16px;
+    }
+
+    a.back:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <a href="index.html" class="back">← Back</a>
+
+  <div class="container">
+    <h1>Robux Tax Calculator</h1>
+
+    <div class="mode-buttons">
+      <button id="beforeBtn" class="active" onclick="setMode('before')">Robux Before Tax</button>
+      <button id="afterBtn" onclick="setMode('after')">Robux After Tax</button>
+    </div>
+
+    <div class="input-container">
+      <img src="https://cdn-icons-png.flaticon.com/512/2231/2231582.png" alt="Robux" />
+      <input type="number" id="robuxInput" placeholder="Enter Robux" oninput="calculate()" />
+    </div>
+
+    <div class="output-box">
+<h3 id="outputLabel">You would get:</h3>
+      <div class="output-value" id="outputValue">
+        0 <img src="https://cdn-icons-png.flaticon.com/512/2231/2231582.png" alt="Robux" />
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let mode = 'before';
+
+function setMode(selected) {
+  mode = selected;
+  document.getElementById('beforeBtn').classList.remove('active');
+  document.getElementById('afterBtn').classList.remove('active');
+  document.getElementById(selected + 'Btn').classList.add('active');
+
+  // غير النص حسب الوضع
+  const label = document.getElementById('outputLabel');
+  label.textContent = mode === 'before' ? 'You would get:' : 'You would need:';
+
+  calculate();
+}
+
+    function calculate() {
+      const value = parseFloat(document.getElementById('robuxInput').value);
+      let result = 0;
+      if (!isNaN(value)) {
+        result = (mode === 'before') ? Math.floor(value * 0.7) : Math.ceil(value / 0.7);
+      }
+      document.getElementById('outputValue').innerHTML = `${result} <img src="https://cdn-icons-png.flaticon.com/512/2231/2231582.png" alt="Robux" />`;
+    }
+  </script>
+</body>
+</html>
